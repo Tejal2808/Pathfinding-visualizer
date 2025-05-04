@@ -1,0 +1,236 @@
+.grid {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0;
+  }
+  
+  .grid-row {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    font-size: 0;
+  }
+  
+  .buttons {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .buttons button:hover {
+    background-color: #0097a7;
+  }
+  
+  /* Active state for buttons */
+  .buttons button.active {
+    background-color: #006064;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .weight-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+  }
+  
+  .weight-input-wrapper {
+    display: inline-block;
+    position: relative;
+    margin: 0 10px;
+  }
+  
+  .weight-controls input[type="number"] {
+    width: 70px;
+    padding: 5px 20px 5px 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  
+  .weight-controls input[type="number"]::-webkit-inner-spin-button {
+    opacity: 1;
+    height: 28px;
+    margin-right: 2px;
+    cursor: pointer;
+    position: relative;
+    background: linear-gradient(to bottom, 
+      #f0f0f0 0%, 
+      #f0f0f0 50%, 
+      #e3e3e3 50%, 
+      #e3e3e3 100%);
+    border-left: 1px solid #ccc;
+  }
+  
+  .weight-controls input[type="number"].active {
+    border-color: #2c3e50;
+  }
+  
+  /* Style for placeholder */
+  .weight-controls input[type="number"]::placeholder {
+    color: #666;
+  }
+  
+  /* Firefox specific styles */
+  .weight-controls input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  
+  @-moz-document url-prefix() {
+    .weight-controls input[type="number"] {
+      padding-right: 8px;
+    }
+  }
+  
+  .toggle-indicator {
+    position: absolute;
+    right: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .toggle-indicator.active {
+    opacity: 1;
+  }
+  
+  .weight-controls input[type="number"]::placeholder {
+    color: #666;
+  }
+  
+  .weight-controls input[type="number"]:focus {
+    outline: none;
+    border-color: #2c3e50;
+    box-shadow: 0 0 5px rgba(44, 62, 80, 0.2);
+  }
+  
+  .weight-controls label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .buttons button.disabled,
+  .weight-controls button.disabled,
+  .weight-controls input.disabled,
+  .weight-controls label.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .buttons button.active {
+    background-color: #2c3e50;
+    /* color: white; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .weight-controls button.active {
+    background-color: #2c3e50;
+    color: white;
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+  }
+  
+  /* Keep the Erase button styles unchanged */
+  .buttons button:last-child {
+    opacity: 1 !important;
+    cursor: pointer !important;
+  }
+  
+  /* Add styles for the controls container */
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .left-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .right-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto; /* Push to the right */
+  }
+  
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 28px; /* Match button height */
+    white-space: nowrap;
+    user-select: none;
+  }
+  
+  .checkbox-label input[type="checkbox"] {
+    margin: 0;
+    vertical-align: middle;
+  }
+  
+  .weight-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .button {
+    background-color: #00bcd4;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .button:hover:not(:disabled) {
+    background-color: #0097a7;
+  }
+    /* margin: 10px;
+    padding: 10px 20px; */
+  
+  .button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .button.active {
+    background-color: #006064;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .stop-button button {
+    transition: all 0.2s;
+  }
+  .stop-button button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
