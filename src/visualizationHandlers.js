@@ -24,7 +24,7 @@ export function visualizeDijkstra(state, setState, resetGrid, getPath, animate) 
       const start = grid[startNode.row][startNode.col];
       const finish = grid[finishNode.row][finishNode.col];
       start.distance = 0;
-      const visitedNodesInOrder = dijkstra(grid, start, finish);
+      const visitedNodesInOrder = dijkstra(grid, start, finish,state.isWeightedGraph);
       const nodesInShortestPathOrder = getPath(finish);
       animate(visitedNodesInOrder, nodesInShortestPathOrder);
     });
@@ -123,7 +123,7 @@ export function visualizeDijkstra(state, setState, resetGrid, getPath, animate) 
       const grid = newGrid;
       const start = grid[startNode.row][startNode.col];
       const finish = grid[finishNode.row][finishNode.col];
-      const visitedNodesInOrder = aStarSearch(grid, start, finish);
+      const visitedNodesInOrder = aStarSearch(grid, start, finish,state.isWeightedGraph);
       const nodesInShortestPathOrder = getPath(finish);
       animate(visitedNodesInOrder, nodesInShortestPathOrder);
     });

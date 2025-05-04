@@ -1,47 +1,38 @@
 
-export function dijkstra(grid, startNode, finishNode) {
-    const visitedNodesInOrder = [];
-    startNode.distance = 0;
-    const unvisitedNodes = getAllNodes(grid);
-  
-    while (unvisitedNodes.length) {
-      // Sort by distance
+export function dijkstra(grid, startNode, finishNode, isWeightedGraph) {
+  const visitedNodesInOrder = [];
+  startNode.distance = 0;
+  const unvisitedNodes = getAllNodes(grid);
+
+  while (unvisitedNodes.length) {
       unvisitedNodes.sort((a, b) => a.distance - b.distance);
       const closestNode = unvisitedNodes.shift();
-  
-      // Skip walls
-      if (closestNode.isWall) continue;
-  
-      // Stop if unreachable
-      if (closestNode.distance === Infinity) return visitedNodesInOrder;
-  
-      closestNode.isVisited = true;
-      visitedNodesInOrder.push(closestNode);
-  
-      // Stop if we reached the finish
-      if (closestNode === finishNode) return visitedNodesInOrder;
-  
-      updateUnvisitedNeighbors(closestNode, grid);
-    }
-  
-    return visitedNodesInOrder;
+
+    if (closestNode.isWall) continue;
+    if (closestNode.distance === Infinity) return visitedNodesInOrder;
+
+    closestNode.isVisited = true;
+    visitedNodesInOrder.push(closestNode);
+
+    if (closestNode === finishNode) return visitedNodesInOrder;
+    updateUnvisitedNeighbors(closestNode, grid, isWeightedGraph);
   }
-  
-  function updateUnvisitedNeighbors(node, grid) {
+
+  return visitedNodesInOrder;
+}
+
+  function updateUnvisitedNeighbors(node, grid, isWeightedGraph) {
     const neighbors = getUnvisitedNeighbors(node, grid);
     for (const neighbor of neighbors) {
-      if (!neighbor.isWall) { // Only update non-wall nodes
-        const weight = neighbor.isWeighted ? neighbor.weight : 1;
-        const tentativeDistance = node.distance + weight;
-        
-        if (tentativeDistance < neighbor.distance) {
-          neighbor.distance = tentativeDistance;
-          neighbor.previousNode = node;
-        }
+      const effectiveWeight = isWeightedGraph ? neighbor.weight : 1;
+      const distance = node.distance + effectiveWeight;
+  
+      if (distance < neighbor.distance) {
+        neighbor.distance = distance;
+        neighbor.previousNode = node;
       }
     }
   }
-  
   function getUnvisitedNeighbors(node, grid) {
     const neighbors = [];
     const { row, col } = node;
@@ -60,5 +51,4 @@ export function dijkstra(grid, startNode, finishNode) {
       }
     }
     return nodes;
-  }
-  
+  } 
