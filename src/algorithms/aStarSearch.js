@@ -4,7 +4,7 @@ function getManhattanDistance(node, finishNode) {
 }
 
 // A* Search Algorithm
-export function aStarSearch(grid, startNode, finishNode, isWeightedGraph = false) {
+export function aStarSearch(grid, startNode, finishNode, isWeightedGraph ) {
   const visitedNodesInOrder = [];
   const unvisitedNodes = []; // Priority queue
 
@@ -41,7 +41,7 @@ export function aStarSearch(grid, startNode, finishNode, isWeightedGraph = false
     for (const neighbor of neighbors) {
       if (neighbor.isWall) continue;
 
-      // ✅ Use weights only if it's a weighted graph
+      // Use weights only if it's a weighted graph
       const costToNeighbor = isWeightedGraph ? neighbor.weight : 1;
       const tentativeG = currentNode.gCost + costToNeighbor;
 

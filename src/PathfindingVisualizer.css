@@ -34,7 +34,6 @@
     background-color: #0097a7;
   }
   
-  /* Active state for buttons */
   .buttons button.active {
     background-color: #006064;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -146,13 +145,11 @@
     transition: all 0.2s ease;
   }
   
-  /* Keep the Erase button styles unchanged */
   .buttons button:last-child {
     opacity: 1 !important;
     cursor: pointer !important;
   }
   
-  /* Add styles for the controls container */
   .controls {
     display: flex;
     justify-content: space-between;
@@ -174,14 +171,14 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-left: auto; /* Push to the right */
+    margin-left: auto;
   }
   
   .checkbox-label {
     display: flex;
     align-items: center;
     gap: 5px;
-    height: 28px; /* Match button height */
+    height: 28px; 
     white-space: nowrap;
     user-select: none;
   }
@@ -214,8 +211,6 @@
   .button:hover:not(:disabled) {
     background-color: #0097a7;
   }
-    /* margin: 10px;
-    padding: 10px 20px; */
   
   .button:disabled {
     opacity: 0.6;
