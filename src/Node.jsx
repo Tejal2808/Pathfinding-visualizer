@@ -26,7 +26,7 @@ export default function Node({
 
   const handleWeightInput = (e) => {
     const value = e.target.value;
-    if (value === '' || (/^\d+$/.test(value) && parseInt(value) >= 2 && parseInt(value) <= 99)) {
+    if (value === '' || (/^\d+$/.test(value) && parseInt(value) >= 1 && parseInt(value) <= 99)) {
       setInputValue(value);  // Only allow numeric input between 2-99
     }
   };
@@ -34,7 +34,7 @@ export default function Node({
   const handleInputBlur = () => {
     if (inputValue) {
       const newWeight = parseInt(inputValue);
-      if (newWeight >= 2 && newWeight <= 99) {
+      if (newWeight >= 1 && newWeight <= 99) {
         onWeightChange(row, col, newWeight);
       }
     }
@@ -63,7 +63,7 @@ export default function Node({
         <input
           ref={inputRef}
           type="number"
-          min="2"
+          min="1"
           max="99"
           value={inputValue}
           onChange={handleWeightInput}
@@ -72,7 +72,7 @@ export default function Node({
           autoFocus
         />
       ) : (
-        weight > 1 && <div className="weight-value">{weight}</div>
+        weight => 1 && <div className="weight-value">{weight}</div>
       )}
     </div>
   );
